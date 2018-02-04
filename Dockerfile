@@ -17,6 +17,8 @@ RUN \
 	p7zip \
 	python2 \
 	unrar \
+	git \
+	ffmpeg \
 	wget && \
  echo "**** install nzbget ****" && \
  mkdir -p \
