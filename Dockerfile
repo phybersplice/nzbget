@@ -46,15 +46,13 @@ RUN \
 # add local files
 COPY root/ /
 
-# install nzbToMedia
-RUN \
- mkdir /scripts
-RUN \
- mkdir /scripts/logs
-
 #Download nzbToMedia from github
 RUN \
 git clone https://github.com/clinton-hall/nzbToMedia.git /scripts
+
+# install nzbToMedia
+RUN \
+ mkdir /scripts/logs
 
 #Set script file permissions
 RUN chmod 775 -R /scripts
