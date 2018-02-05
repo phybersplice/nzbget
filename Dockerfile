@@ -55,11 +55,11 @@ RUN \
  mkdir /scripts/logs
 
 #Set script file permissions
-RUN chmod 775 -R /scripts
-RUN chmod 775 /scripts/logs
+RUN chmod 777 -R /scripts
+RUN chmod 777 /scripts/logs
 
 #Set script directory setting in NZBGet config file
-ONBUILD RUN sed -i 's/^ScriptDir=.*/ScriptDir=\/scripts/' /config/nzbget.conf
+#ONBUILD RUN sed -i 's/^ScriptDir=.*/ScriptDir=\/scripts/' /config/nzbget.conf
 
 # ports and volumes
 VOLUME /config /downloads
