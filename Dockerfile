@@ -35,7 +35,7 @@ RUN \
  cp /app/nzbget/nzbget.conf /defaults/nzbget.conf && \
  sed -i \
 	-e "s#\(MainDir=\).*#\1/downloads#g" \
-	-e "s#\(ScriptDir=\).*#\1$\{MainDir\}/scripts#g" \
+	-e "s#\(ScriptDir=\).*#\1$\/scripts#g" \
 	-e "s#\(WebDir=\).*#\1$\{AppDir\}/webui#g" \
 	-e "s#\(ConfigTemplate=\).*#\1$\{AppDir\}/webui/nzbget.conf.template#g" \
  /defaults/nzbget.conf && \
@@ -52,14 +52,11 @@ git clone https://github.com/clinton-hall/nzbToMedia.git /scripts
 
 # install nzbToMedia
 RUN \
- mkdir /scripts/logs
+mkdir /scripts/logs
 
 #Set script file permissions
 RUN chmod 777 -R /scripts
 RUN chmod 777 /scripts/logs
-
-#Set script directory setting in NZBGet config file
-#ONBUILD RUN sed -i 's/^ScriptDir=.*/ScriptDir=\/scripts/' /config/nzbget.conf
 
 # ports and volumes
 VOLUME /config /downloads
