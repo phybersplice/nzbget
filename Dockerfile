@@ -69,7 +69,7 @@ ENTRYPOINT ["par2"]
 
 #Download nzbToMedia from github
 RUN \
-git clone https://github.com/clinton-hall/nzbToMedia.git scripts
+git clone https://github.com/clinton-hall/nzbToMedia.git /scripts
 
 # install nzbToMedia
 RUN \
