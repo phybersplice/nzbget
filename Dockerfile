@@ -23,6 +23,9 @@ RUN \
   make \
   automake \
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of b3b2fa1... edits
+=======
 >>>>>>> parent of b3b2fa1... edits
 =======
 >>>>>>> parent of b3b2fa1... edits
