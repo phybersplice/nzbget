@@ -55,7 +55,7 @@ RUN \
 git clone https://github.com/clinton-hall/nzbToMedia.git /scripts
 
 #Set script file permissions
-RUN chmod 775 -R /scripts
+ONBUILD RUN chmod 775 -R /scripts
 
 #Set script directory setting in NZBGet config file
 RUN \
