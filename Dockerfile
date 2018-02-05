@@ -18,38 +18,6 @@ RUN \
 	python2 \
 	unrar \
 	git \
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-  make \
-  automake \
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of b3b2fa1... edits
-=======
->>>>>>> parent of b3b2fa1... edits
-=======
->>>>>>> parent of b3b2fa1... edits
-=======
->>>>>>> parent of b3b2fa1... edits
-=======
->>>>>>> parent of b3b2fa1... edits
-=======
->>>>>>> parent of b3b2fa1... edits
-=======
->>>>>>> parent of b3b2fa1... edits
-=======
->>>>>>> parent of b3b2fa1... edits
-=======
->>>>>>> parent of b3b2fa1... edits
-=======
->>>>>>> parent of ac508b4... add par2cmdline
 	ffmpeg \
 	wget && \
  echo "**** install nzbget ****" && \
@@ -78,85 +46,16 @@ RUN \
 # add local files
 COPY root/ /
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-#Add par2cmdline
-FROM frolvlad/alpine-gcc
-RUN apk update && \
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	apk add --no-cache --virtual .build-dependencies make g++ ca-certificates wget automake autoconf && \
-=======
-	apk add --no-cache --virtual .build-dependencies make g++ ca-certificates wget automake autoconf git && \
->>>>>>> parent of b3b2fa1... edits
-=======
-	apk add --no-cache --virtual .build-dependencies make g++ ca-certificates wget automake autoconf git && \
->>>>>>> parent of b3b2fa1... edits
-=======
-	apk add --no-cache --virtual .build-dependencies make g++ ca-certificates wget automake autoconf git && \
->>>>>>> parent of b3b2fa1... edits
-=======
-	apk add --no-cache --virtual .build-dependencies make g++ ca-certificates wget automake autoconf git && \
->>>>>>> parent of b3b2fa1... edits
-=======
-	apk add --no-cache --virtual .build-dependencies make g++ ca-certificates wget automake autoconf git && \
->>>>>>> parent of b3b2fa1... edits
-=======
-	apk add --no-cache --virtual .build-dependencies make g++ ca-certificates wget automake autoconf && \
->>>>>>> parent of 46fb15e... minor edits
-	update-ca-certificates
-RUN wget https://github.com/Parchive/par2cmdline/archive/v0.6.13.tar.gz && \
-	tar -xzvf v0.6.13.tar.gz && \
-	cd par2cmdline-0.6.13 && \
-	aclocal && \
-	automake --add-missing && \
-	autoconf && \
-	./configure && \
-	make && \
-	make install
-RUN apk del .build-dependencies && \
-	cd / && \
-	rm -rf par2cmdline-0.6.13 v0.6.13.tar.gz
-ENTRYPOINT ["par2"]
-
->>>>>>> parent of b3b2fa1... edits
-=======
->>>>>>> parent of ac508b4... add par2cmdline
-#Download nzbToMedia from github
-RUN \
-git clone https://github.com/clinton-hall/nzbToMedia.git scripts
-
 # install nzbToMedia
 RUN \
-mkdir /scripts/logs
+ mkdir /scripts
 
-WORKDIR /data
-
-RUN apt-get update && \
-    apt-get install -y git build-essential automake && \
-    git clone https://github.com/Parchive/par2cmdline.git && \
-    cd par2cmdline && \
-    aclocal && \
-    automake --add-missing && \
-    autoconf && \
-    ./configure && \
-    make && \
-    make check && \
-    make install && \
-    cd /data && \
-    rm -rf par2cmdline && \
-    apt-get remove -y git build-essential automake && \
-    apt-get autoremove -y && \
-    apt-get purge
+#Download nzbToMedia from github
+RUN \
+git clone https://github.com/clinton-hall/nzbToMedia.git /scripts
 
 #Set script file permissions
-RUN chmod 777 -R /scripts
-RUN chmod 777 /scripts/logs
+RUN chmod 775 -R /scripts
 
 # ports and volumes
 VOLUME /config /downloads
