@@ -22,6 +22,9 @@ RUN \
 =======
   make \
   automake \
+<<<<<<< HEAD
+>>>>>>> parent of b3b2fa1... edits
+=======
 >>>>>>> parent of b3b2fa1... edits
 	ffmpeg \
 	wget && \
