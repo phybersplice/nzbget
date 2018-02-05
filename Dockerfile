@@ -49,6 +49,7 @@ COPY root/ /
 # install nzbToMedia
 RUN \
  mkdir /scripts
+RUN \
  mkdir /scripts/logs
 
 #Download nzbToMedia from github
@@ -57,7 +58,7 @@ git clone https://github.com/clinton-hall/nzbToMedia.git /scripts
 
 #Set script file permissions
 RUN chmod 775 -R /scripts
-RUN chmod 775 -R /scripts/logs
+RUN chmod 775 /scripts/logs
 
 #Set script directory setting in NZBGet config file
 ONBUILD RUN sed -i 's/^ScriptDir=.*/ScriptDir=\/scripts/' /config/nzbget.conf
