@@ -19,6 +19,7 @@ RUN \
 	unrar \
 	git \
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   make \
   automake \
@@ -47,6 +48,8 @@ RUN \
 >>>>>>> parent of b3b2fa1... edits
 =======
 >>>>>>> parent of b3b2fa1... edits
+=======
+>>>>>>> parent of ac508b4... add par2cmdline
 	ffmpeg \
 	wget && \
  echo "**** install nzbget ****" && \
@@ -75,6 +78,7 @@ RUN \
 # add local files
 COPY root/ /
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 #Add par2cmdline
@@ -121,6 +125,8 @@ RUN apk del .build-dependencies && \
 ENTRYPOINT ["par2"]
 
 >>>>>>> parent of b3b2fa1... edits
+=======
+>>>>>>> parent of ac508b4... add par2cmdline
 #Download nzbToMedia from github
 RUN \
 git clone https://github.com/clinton-hall/nzbToMedia.git scripts
