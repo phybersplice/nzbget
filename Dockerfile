@@ -49,6 +49,7 @@ COPY root/ /
 # install nzbToMedia
 RUN \
  mkdir /scripts
+ mkdir /scripts/logs
 
 #Download nzbToMedia from github
 RUN \
