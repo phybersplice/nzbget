@@ -19,10 +19,7 @@ RUN \
 	unrar \
 	git \
   make \
-  g++ \
-  ca-certificates \
   automake \
-  autoconf \
 	ffmpeg \
 	wget && \
  echo "**** install nzbget ****" && \
@@ -52,6 +49,10 @@ RUN \
 COPY root/ /
 
 #Add par2cmdline
+FROM frolvlad/alpine-gcc
+RUN apk update && \
+	apk add --no-cache --virtual .build-dependencies make g++ ca-certificates wget automake autoconf git && \
+	update-ca-certificates
 RUN wget https://github.com/Parchive/par2cmdline/archive/v0.6.13.tar.gz && \
 	tar -xzvf v0.6.13.tar.gz && \
 	cd par2cmdline-0.6.13 && \
@@ -68,7 +69,7 @@ ENTRYPOINT ["par2"]
 
 #Download nzbToMedia from github
 RUN \
-git clone https://github.com/clinton-hall/nzbToMedia.git /scripts
+git clone https://github.com/clinton-hall/nzbToMedia.git scripts
 
 # install nzbToMedia
 RUN \
