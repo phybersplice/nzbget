@@ -55,11 +55,10 @@ RUN \
 git clone https://github.com/clinton-hall/nzbToMedia.git /scripts
 
 #Set script file permissions
-ONBUILD RUN chmod 775 -R /scripts
+RUN chmod 775 -R /scripts
 
 #Set script directory setting in NZBGet config file
-RUN \
-sed -i 's/^ScriptDir=.*/ScriptDir=\/scripts/' /config/nzbget.conf
+ONBUILD RUN sed -i 's/^ScriptDir=.*/ScriptDir=\/scripts/' /config/nzbget.conf
 
 # ports and volumes
 VOLUME /config /downloads
