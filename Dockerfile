@@ -25,6 +25,9 @@ RUN \
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of b3b2fa1... edits
+=======
 >>>>>>> parent of b3b2fa1... edits
 =======
 >>>>>>> parent of b3b2fa1... edits
@@ -65,7 +68,11 @@ COPY root/ /
 #Add par2cmdline
 FROM frolvlad/alpine-gcc
 RUN apk update && \
+<<<<<<< HEAD
 	apk add --no-cache --virtual .build-dependencies make g++ ca-certificates wget automake autoconf && \
+=======
+	apk add --no-cache --virtual .build-dependencies make g++ ca-certificates wget automake autoconf git && \
+>>>>>>> parent of b3b2fa1... edits
 	update-ca-certificates
 RUN wget https://github.com/Parchive/par2cmdline/archive/v0.6.13.tar.gz && \
 	tar -xzvf v0.6.13.tar.gz && \
