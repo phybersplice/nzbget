@@ -81,7 +81,7 @@ RUN wget https://github.com/Parchive/par2cmdline/archive/v0.8.0.tar.gz && \
 RUN apk del .build-dependencies && \
 	cd / && \
 	rm -rf par2cmdline-0.8.0 v0.8.0.tar.gz
-# ENTRYPOINT ["par2"]
+ENTRYPOINT ["par2"]
 
 # ports and volumes
 VOLUME /config /downloads
