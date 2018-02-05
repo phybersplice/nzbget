@@ -85,6 +85,7 @@ RUN apk update && \
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	apk add --no-cache --virtual .build-dependencies make g++ ca-certificates wget automake autoconf && \
 =======
 	apk add --no-cache --virtual .build-dependencies make g++ ca-certificates wget automake autoconf git && \
@@ -101,6 +102,9 @@ RUN apk update && \
 =======
 	apk add --no-cache --virtual .build-dependencies make g++ ca-certificates wget automake autoconf git && \
 >>>>>>> parent of b3b2fa1... edits
+=======
+	apk add --no-cache --virtual .build-dependencies make g++ ca-certificates wget automake autoconf && \
+>>>>>>> parent of 46fb15e... minor edits
 	update-ca-certificates
 RUN wget https://github.com/Parchive/par2cmdline/archive/v0.6.13.tar.gz && \
 	tar -xzvf v0.6.13.tar.gz && \
