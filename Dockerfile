@@ -46,6 +46,13 @@ RUN \
 # add local files
 COPY root/ /
 
+# install nzbToMedia
+RUN \
+ mkdir /scripts
+
+RUN \
+git clone https://github.com/clinton-hall/nzbToMedia.git /scripts 
+
 # ports and volumes
 VOLUME /config /downloads
 EXPOSE 6789
