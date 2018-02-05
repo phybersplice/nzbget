@@ -29,7 +29,7 @@ docker create \
 	-e TZ=<timezone> \
 	-v </path/to/appdata>:/config \
 	-v <path/to/downloads>:/downloads \
-	phybersplice/nzbget
+	linuxserver/nzbget
 ```
 
 This container is based on alpine linux with s6 overlay. For shell access whilst the container is running do `docker exec -it nzbget /bin/bash`.
