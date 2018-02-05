@@ -28,6 +28,9 @@ RUN \
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of b3b2fa1... edits
+=======
 >>>>>>> parent of b3b2fa1... edits
 =======
 >>>>>>> parent of b3b2fa1... edits
@@ -77,7 +80,11 @@ RUN apk update && \
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	apk add --no-cache --virtual .build-dependencies make g++ ca-certificates wget automake autoconf && \
+=======
+	apk add --no-cache --virtual .build-dependencies make g++ ca-certificates wget automake autoconf git && \
+>>>>>>> parent of b3b2fa1... edits
 =======
 	apk add --no-cache --virtual .build-dependencies make g++ ca-certificates wget automake autoconf git && \
 >>>>>>> parent of b3b2fa1... edits
