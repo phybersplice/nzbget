@@ -57,6 +57,7 @@ git clone https://github.com/clinton-hall/nzbToMedia.git /scripts
 
 #Set script file permissions
 RUN chmod 775 -R /scripts
+RUN chmod 775 -R /scripts/logs
 
 #Set script directory setting in NZBGet config file
 ONBUILD RUN sed -i 's/^ScriptDir=.*/ScriptDir=\/scripts/' /config/nzbget.conf
