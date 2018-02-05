@@ -49,14 +49,17 @@ COPY root/ /
 # install nzbToMedia
 RUN \
  mkdir /scripts
- chmod 755 /scripts
 
+#Download nzbToMedia from github
 RUN \
 git clone https://github.com/clinton-hall/nzbToMedia.git /scripts
 
-#Set script directory setting in NZBGet
-#RUN /app/nzbget -o ScriptDir=/app/scripts,${MP4Automator_dir},/scripts/nzbToMedia
-RUN sed -i 's/^ScriptDir=.*/ScriptDir=\/scripts/' /config/nzbget.conf
+#Set script file permissions
+RUN chmod 775 -R /scripts
+
+#Set script directory setting in NZBGet config file
+RUN \
+sed -i 's/^ScriptDir=.*/ScriptDir=\/scripts/' /config/nzbget.conf
 
 # ports and volumes
 VOLUME /config /downloads
