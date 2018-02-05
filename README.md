@@ -3,7 +3,7 @@
 [ircurl]: https://www.linuxserver.io/irc/
 [podcasturl]: https://www.linuxserver.io/podcast/
 [appurl]: http://nzbget.net/
-[hub]: https://hub.docker.com/r/linuxserver/nzbget/
+[hub]: https://hub.docker.com/r/phybersplice/nzbget/
 
 [![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)][linuxserverurl]
 
@@ -29,7 +29,7 @@ docker create \
 	-e TZ=<timezone> \
 	-v </path/to/appdata>:/config \
 	-v <path/to/downloads>:/downloads \
-	linuxserver/nzbget
+	phybersplice/nzbget
 ```
 
 This container is based on alpine linux with s6 overlay. For shell access whilst the container is running do `docker exec -it nzbget /bin/bash`.
@@ -43,7 +43,7 @@ Add one of the tags,  if required,  to the linuxserver/nzbget line of the run/cr
 
 ## Parameters
 
-`The parameters are split into two halves, separated by a colon, the left hand side representing the host and the right the container side. 
+`The parameters are split into two halves, separated by a colon, the left hand side representing the host and the right the container side.
 For example with a port -p external:internal - what this shows is the port mapping from internal to external of the container.
 So -p 8080:80 would expose port 80 from inside the container to be accessible from the host's IP on port 8080
 http://192.168.x.x:8080 would show you what's running INSIDE the container on port 80.`
@@ -70,7 +70,7 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
 
 ## Setting up the application
 
-Webui can be found at  `<your-ip>:6789` and the default login details (change ASAP) are 
+Webui can be found at  `<your-ip>:6789` and the default login details (change ASAP) are
 
 `login:nzbget, password:tegbzn6789`
 
@@ -89,7 +89,7 @@ scroll to bottom, set umask like this (example shown for unraid)
 * Shell access whilst the container is running: `docker exec -it nzbget /bin/bash`
 To monitor the logs of the container in realtime: `docker logs -f nzbget`
 
-* container version number 
+* container version number
 
 `docker inspect -f '{{ index .Config.Labels "build_version" }}' nzbget`
 
@@ -109,5 +109,4 @@ To monitor the logs of the container in realtime: `docker logs -f nzbget`
 + **09.09.16:** Add layer badges to README.
 + **27.08.16:** Add badges to README, perms fix on /app to allow updates.
 + **19.08.16:** Rebase to alpine linux.
-+ **18.08.15:** Now useing latest version of unrar beta and implements the universal installer method. 
-
++ **18.08.15:** Now useing latest version of unrar beta and implements the universal installer method.

@@ -4,7 +4,7 @@ FROM lsiobase/alpine:3.7
 ARG BUILD_DATE
 ARG VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-LABEL maintainer="sparklyballs"
+LABEL maintainer="phybersplice"
 
 # package version
 # (stable-download or testing-download)
@@ -49,9 +49,14 @@ COPY root/ /
 # install nzbToMedia
 RUN \
  mkdir /scripts
+ chmod 755 /scripts
 
 RUN \
-git clone https://github.com/clinton-hall/nzbToMedia.git /scripts 
+git clone https://github.com/clinton-hall/nzbToMedia.git /scripts
+
+#Set script directory setting in NZBGet
+#RUN /app/nzbget -o ScriptDir=/app/scripts,${MP4Automator_dir},/scripts/nzbToMedia
+RUN sed -i 's/^ScriptDir=.*/ScriptDir=\/scripts/' /config/nzbget.conf
 
 # ports and volumes
 VOLUME /config /downloads
