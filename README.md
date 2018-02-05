@@ -5,8 +5,6 @@
 [appurl]: http://nzbget.net/
 [hub]: https://hub.docker.com/r/phybersplice/nzbget/
 
-[![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)][linuxserverurl]
-
 The [LinuxServer.io][linuxserverurl] team brings you another container release featuring easy user mapping and community support. Find us for support at:
 * [forum.linuxserver.io][forumurl]
 * [IRC][ircurl] on freenode at `#linuxserver.io`
