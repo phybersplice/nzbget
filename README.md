@@ -5,11 +5,6 @@
 [appurl]: http://nzbget.net/
 [hub]: https://hub.docker.com/r/phybersplice/nzbget/
 
-The [LinuxServer.io][linuxserverurl] team brings you another container release featuring easy user mapping and community support. Find us for support at:
-* [forum.linuxserver.io][forumurl]
-* [IRC][ircurl] on freenode at `#linuxserver.io`
-* [Podcast][podcasturl] covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
-
 # phybersplice/nzbget
 [![](https://images.microbadger.com/badges/image/phybersplice/nzbget.svg)](https://microbadger.com/images/phybersplice/nzbget "Get your own image badge on microbadger.com")[![](https://images.microbadger.com/badges/version/phybersplice/nzbget.svg)](https://microbadger.com/images/phybersplice/nzbget "Get your own version badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/phybersplice/nzbget.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/phybersplice/nzbget.svg)][hub][![Build Status](https://ci.linuxserver.io/buildStatus/icon?job=Docker-Builders/x86-64/x86-64-nzbget)](https://ci.linuxserver.io/job/Docker-Builders/job/x86-64/job/x86-64-nzbget/)
 
