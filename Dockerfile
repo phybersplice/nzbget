@@ -7,7 +7,7 @@ LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DA
 LABEL maintainer="phybersplice"
 
 #ENV Variables
-ENV PAR2 0.6.14
+ENV PAR2 0.8.0
 
 # package version
 # (stable-download or testing-download)
@@ -38,7 +38,7 @@ RUN \
  cp /app/nzbget/nzbget.conf /defaults/nzbget.conf && \
  sed -i \
 	-e "s#\(MainDir=\).*#\1/downloads#g" \
-	-e "s#\(ScriptDir=\).*#\1$\/scripts#g" \
+	-e "s#\(ScriptDir=\).*#\1\/scripts#g" \
 	-e "s#\(WebDir=\).*#\1$\{AppDir\}/webui#g" \
 	-e "s#\(ConfigTemplate=\).*#\1$\{AppDir\}/webui/nzbget.conf.template#g" \
  /defaults/nzbget.conf && \
@@ -49,17 +49,20 @@ RUN \
 # add local files
 COPY root/ /
 
-# install nzbToMedia
+# Setup nzbToMedia folders and permissions
 RUN \
  mkdir /scripts
+ mkdir /scripts/logs
+ #Set script file permissions
+ RUN chmod 775 -R /scripts
+ RUN chmod 775 -R /scripts/logs
+
 
 #Download nzbToMedia from github
 RUN \
 git clone https://github.com/clinton-hall/nzbToMedia.git /scripts
 
-#Set script file permissions
-RUN chmod 775 -R /scripts
-
+#Compile par2cmdline
 RUN apk add --no-cache build-base automake autoconf python-dev \
     && wget -O- https://github.com/Parchive/par2cmdline/archive/v$PAR2.tar.gz | tar -zx \
     && cd par2cmdline-$PAR2 \
@@ -71,7 +74,6 @@ RUN apk add --no-cache build-base automake autoconf python-dev \
     && make install \
     && cd .. \
     && rm -rf par2cmdline-$PAR2 \
-#   && pip --no-cache-dir install --upgrade sabyenc \
     && apk del build-base automake autoconf python-dev
 
 # ports and volumes

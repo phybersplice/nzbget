@@ -1,17 +1,19 @@
 [linuxserverurl]: https://linuxserver.io
-[forumurl]: https://forum.linuxserver.io
-[ircurl]: https://www.linuxserver.io/irc/
-[podcasturl]: https://www.linuxserver.io/podcast/
 [appurl]: http://nzbget.net/
 [hub]: https://hub.docker.com/r/phybersplice/nzbget/
 
-The [LinuxServer.io][linuxserverurl] team brings you another container release featuring easy user mapping and community support. Find us for support at:
-* [forum.linuxserver.io][forumurl]
-* [IRC][ircurl] on freenode at `#linuxserver.io`
-* [Podcast][podcasturl] covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
+This Docker container is based on [LinuxServer.io's nzbget container.
+This package has the following software built in:
+
+nzbget 19.1
+par2cmdline 0.8.0
+ffmpeg 3.4.1-r0
+ffprobe 3.4.1-r0
+git 2.15.0
+nzbToMedia (https://github.com/clinton-hall/nzbToMedia.git)
 
 # phybersplice/nzbget
-[![](https://images.microbadger.com/badges/image/phybersplice/nzbget.svg)](https://microbadger.com/images/phybersplice/nzbget "Get your own image badge on microbadger.com")[![](https://images.microbadger.com/badges/version/phybersplice/nzbget.svg)](https://microbadger.com/images/phybersplice/nzbget "Get your own version badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/phybersplice/nzbget.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/phybersplice/nzbget.svg)][hub][![Build Status](https://ci.linuxserver.io/buildStatus/icon?job=Docker-Builders/x86-64/x86-64-nzbget)](https://ci.linuxserver.io/job/Docker-Builders/job/x86-64/job/x86-64-nzbget/)
+[![](https://images.microbadger.com/badges/image/phybersplice/nzbget.svg)](https://microbadger.com/images/phybersplice/nzbget "Get your own image badge on microbadger.com")[![](https://images.microbadger.com/badges/version/phybersplice/nzbget.svg)](https://microbadger.com/images/phybersplice/nzbget "Get your own version badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/phybersplice/nzbget.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/phybersplice/nzbget.svg)][hub]
 
 [NZBGet](http://nzbget.net/) is a usenet downloader, written in C++ and designed with performance in mind to achieve maximum download speed by using very little system resources.
 
@@ -27,7 +29,7 @@ docker create \
 	-e TZ=<timezone> \
 	-v </path/to/appdata>:/config \
 	-v <path/to/downloads>:/downloads \
-	linuxserver/nzbget
+	phybersplice/nzbget
 ```
 
 This container is based on alpine linux with s6 overlay. For shell access whilst the container is running do `docker exec -it nzbget /bin/bash`.
@@ -52,7 +54,7 @@ http://192.168.x.x:8080 would show you what's running INSIDE the container on po
 * `-v /downloads` - location of downloads on disk
 * `-e PGID` for for GroupID - see below for explanation
 * `-e PUID` for for UserID - see below for explanation
-* `-e TZ` for timezone EG. Europe/London
+* `-e TZ` for timezone Ex. America/Toronto
 
 
 ### User / Group Identifiers
@@ -93,7 +95,7 @@ To monitor the logs of the container in realtime: `docker logs -f nzbget`
 
 * image version number
 
-`docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/nzbget`
+`docker inspect -f '{{ index .Config.Labels "build_version" }}' phybersplice/nzbget`
 
 ## Versions
 
@@ -107,4 +109,4 @@ To monitor the logs of the container in realtime: `docker logs -f nzbget`
 + **09.09.16:** Add layer badges to README.
 + **27.08.16:** Add badges to README, perms fix on /app to allow updates.
 + **19.08.16:** Rebase to alpine linux.
-+ **18.08.15:** Now useing latest version of unrar beta and implements the universal installer method.
++ **18.08.15:** Now using latest version of unrar beta and implements the universal installer method.
