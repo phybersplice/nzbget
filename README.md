@@ -2,7 +2,7 @@
 [appurl]: http://nzbget.net/
 [hub]: https://hub.docker.com/r/phybersplice/nzbget/
 
-This Docker container is based on [LinuxServer.io's nzbget container.
+This Docker container is based on LinuxServer.io's nzbget container.
 This package has the following software built in:
 
 nzbget 19.1
