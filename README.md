@@ -6,12 +6,15 @@ This Docker container is based on LinuxServer.io's nzbget container.
 
 This package has the following software built in:
 
+```
 ⚬ nzbget 19.1
 ⚬ par2cmdline 0.8.0
 ⚬ ffmpeg 3.4.1-r0
 ⚬ ffprobe 3.4.1-r0
 ⚬ git 2.15.0
 ⚬ nzbToMedia (https://github.com/clinton-hall/nzbToMedia.git)
+```
+
 
 # phybersplice/nzbget
 [![](https://images.microbadger.com/badges/image/phybersplice/nzbget.svg)](https://microbadger.com/images/phybersplice/nzbget "Get your own image badge on microbadger.com")[![](https://images.microbadger.com/badges/version/phybersplice/nzbget.svg)](https://microbadger.com/images/phybersplice/nzbget "Get your own version badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/phybersplice/nzbget.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/phybersplice/nzbget.svg)][hub]
