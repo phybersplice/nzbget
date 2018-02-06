@@ -62,7 +62,7 @@ RUN \
  RUN chmod 777 /scripts/logs
 
 #Compile par2cmdline
-RUN apk add --no-cache build-base automake autoconf python-dev \
+RUN apk add --no-cache build-base automake autoconf libgomp python-dev \
     && wget -O- https://github.com/Parchive/par2cmdline/archive/v$PAR2.tar.gz | tar -zx \
     && cd par2cmdline-$PAR2 \
     && aclocal \
