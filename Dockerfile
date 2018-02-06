@@ -57,6 +57,20 @@ git clone https://github.com/clinton-hall/nzbToMedia.git /scripts
 #Set script file permissions
 RUN chmod 775 -R /scripts
 
+RUN apk add --no-cache build-base automake autoconf python-dev \
+    && wget -O- https://github.com/Parchive/par2cmdline/archive/v$PAR2.tar.gz | tar -zx \
+    && cd par2cmdline-$PAR2 \
+    && aclocal \
+    && automake --add-missing \
+    && autoconf \
+    && ./configure \
+    && make \
+    && make install \
+    && cd .. \
+    && rm -rf par2cmdline-$PAR2 \
+    && pip --no-cache-dir install --upgrade sabyenc \
+    && apk del build-base automake autoconf python-dev
+
 # ports and volumes
 VOLUME /config /downloads
 EXPOSE 6789
