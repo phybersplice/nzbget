@@ -49,16 +49,17 @@ RUN \
 # add local files
 COPY root/ /
 
-# Setup nzbToMedia folders and permissions
-RUN \
- mkdir /scripts
- mkdir /scripts/logs
- chmod 775 -R /scripts
- chmod 775 -R /scripts/logs
-
 #Download nzbToMedia from github
 RUN \
 git clone https://github.com/clinton-hall/nzbToMedia.git /scripts
+
+# Setup nzbToMedia folders and permissions
+RUN \
+ mkdir /scripts/logs
+
+# Set script file permissions
+ RUN chmod 775 -R /scripts
+ RUN chmod 775 /scripts/logs
 
 #Compile par2cmdline
 RUN apk add --no-cache build-base automake autoconf python-dev \
