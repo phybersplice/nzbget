@@ -42,9 +42,6 @@ RUN \
 	-e "s#\(WebDir=\).*#\1$\{AppDir\}/webui#g" \
 	-e "s#\(ConfigTemplate=\).*#\1$\{AppDir\}/webui/nzbget.conf.template#g" \
  /defaults/nzbget.conf && \
-#Update unrar
- rm /app/nzbget/unrar \
- ln -s /usr/bin/unrar unrar \
  echo "**** cleanup ****" && \
  rm -rf \
 	/tmp/*
