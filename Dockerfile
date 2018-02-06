@@ -58,8 +58,8 @@ RUN \
  mkdir /scripts/logs
 
 # Set script file permissions
- RUN chmod 775 -R /scripts
- RUN chmod 775 /scripts/logs
+ RUN chmod 777 -R /scripts
+ RUN chmod 777 /scripts/logs
 
 #Compile par2cmdline
 RUN apk add --no-cache build-base automake autoconf python-dev \
