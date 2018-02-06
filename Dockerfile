@@ -53,7 +53,7 @@ COPY root/ /
 RUN \
  mkdir /scripts \
  mkdir /scripts/logs \
- #Set script file permissions
+# Set script file permissions
  RUN chmod 775 -R /scripts \
  RUN chmod 775 -R /scripts/logs \
 
