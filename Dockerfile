@@ -6,6 +6,9 @@ ARG VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="phybersplice"
 
+#ENV Variables
+ENV PAR2 0.6.14
+
 # package version
 # (stable-download or testing-download)
 ARG NZBGET_BRANCH="stable-download"
