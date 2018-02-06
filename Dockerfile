@@ -71,7 +71,7 @@ RUN apk add --no-cache build-base automake autoconf python-dev \
     && make install \
     && cd .. \
     && rm -rf par2cmdline-$PAR2 \
-    && pip --no-cache-dir install --upgrade sabyenc \
+#   && pip --no-cache-dir install --upgrade sabyenc \
     && apk del build-base automake autoconf python-dev
 
 # ports and volumes
