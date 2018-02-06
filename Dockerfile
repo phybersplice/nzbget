@@ -51,11 +51,10 @@ COPY root/ /
 
 # Setup nzbToMedia folders and permissions
 RUN \
- mkdir /scripts \
- mkdir /scripts/logs \
-# Set script file permissions
- RUN chmod 775 -R /scripts \
- RUN chmod 775 -R /scripts/logs \
+ mkdir /scripts
+ mkdir /scripts/logs
+ chmod 775 -R /scripts
+ chmod 775 -R /scripts/logs
 
 #Download nzbToMedia from github
 RUN \
